@@ -7,7 +7,7 @@ This is a Dockerfile/image to build a container for nginx and php-fpm.
 | Docker Tag | Alpine Version | Nginx Version | PHP Version | Redis (ext) | PostgreSQL (ext) | MariaDB (ext) |
 |-----|-------|-----|--------|--------|--------|--------|
 | 7.2-psql-redis3 | 3.9 | 1.16.0 | 7.2 | 3.1.6 | + | – |
-| 7.1-maria-redis2 | 3.9 | 1.16.0 | 7.1 | 2.2.8 | - | + |
+| 7.1-maria-redis2 | 3.9 | 1.16.0 | 7.1 | 2.2.8 | – | + |
 | 5.6-maria-redis2 | 3.9 | 1.16.0 | 5.6 | 2.2.8 | – | + |
 
 ### Quick Start
