@@ -44,14 +44,16 @@ RUN apk update \
 
 RUN apk add --no-cache --virtual .persistent-deps \
     git \
-    icu-libs
+    icu-libs \
+    libsasl \
+    openssl-dev
 
 RUN set -xe \
     && apk add --no-cache --virtual .build-deps \
         $PHPIZE_DEPS \
         icu-dev \
         zlib-dev \
-        libsasl \
+        cyrus-sasl-dev \
     && docker-php-ext-install \
         intl \
         mbstring \
@@ -65,9 +67,11 @@ RUN set -xe \
         igbinary-2.0.8 \
         redis-3.1.6 \
         xdebug-2.5.5 \
+        mongo \
     && docker-php-ext-enable \
         igbinary \
         redis \
+        mongo \
     && apk del .build-deps
 
 WORKDIR /app
