@@ -46,6 +46,7 @@ RUN apk update \
 RUN apk add --no-cache --virtual .persistent-deps \
     git \
     icu-libs \
+    libzip-dev \
     postgresql-dev
 
 RUN set -xe \
@@ -53,7 +54,6 @@ RUN set -xe \
         $PHPIZE_DEPS \
         icu-dev \
         zlib-dev \
-        libzip-dev \
         zip \
     && docker-php-ext-configure zip --with-libzip \
     && docker-php-ext-install \
