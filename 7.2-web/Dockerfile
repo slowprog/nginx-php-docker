@@ -62,7 +62,7 @@ RUN set -xe \
         zip \
         pdo_pgsql \
     && yes | pecl install \
-        apcu-$APCU_VERSION \
+        apcu-$PHP_APCU_VERSION \
         igbinary \
         redis-$PHP_REDIS_VERSION \
         xdebug \
