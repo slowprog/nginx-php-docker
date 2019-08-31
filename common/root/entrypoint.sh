@@ -11,8 +11,5 @@ fi
 procs=$(cat /proc/cpuinfo | grep processor | wc -l)
 sed -i -e "s/worker_processes .*/worker_processes $procs;/" /etc/nginx/nginx.conf
 
-# Warm cache for Symfony
-if [ -f "/app/bin/console" ]; then /app/bin/console cache:warm fi
-
 # Start supervisord and services
 /usr/bin/supervisord -n -c /etc/supervisord.conf
