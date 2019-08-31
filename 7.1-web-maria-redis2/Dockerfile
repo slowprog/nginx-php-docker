@@ -1,8 +1,8 @@
-FROM php:5.6-fpm-alpine
+FROM php:7.1-fpm-alpine
 
 # Адрес файла с переменными окружения от корня проекта.
 ENV ENV_PATH=.env \
-    PHP_REDIS_VERSION=2.2.8
+    PHP_REDIS_VERSION=3.1.6
 
 RUN apk update \
     && apk --no-cache --progress add \
@@ -59,7 +59,6 @@ RUN set -xe \
         bcmath \
         pcntl \
         zip \
-        mysql \
         mysqli \
         pdo_mysql \
     && yes | pecl install -o -f \

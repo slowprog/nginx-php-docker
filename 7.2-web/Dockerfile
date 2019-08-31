@@ -1,8 +1,9 @@
 FROM php:7.2-fpm-alpine
 
 # Адрес файла с переменными окружения от корня проекта.
-ENV ENV_PATH=.env \
-    PHP_REDIS_VERSION=3.1.6
+ENV ENV_PATH=.env
+ENV PHP_REDIS_VERSION=3.1.6
+ENV PHP_APCU_VERSION=5.1.8
 
 RUN apk update \
     && apk --no-cache --progress add \
@@ -61,10 +62,12 @@ RUN set -xe \
         zip \
         pdo_pgsql \
     && yes | pecl install \
+        apcu-$APCU_VERSION \
         igbinary \
         redis-$PHP_REDIS_VERSION \
         xdebug \
     && docker-php-ext-enable \
+        apcu \
         igbinary \
         redis \
     && apk del .build-deps
