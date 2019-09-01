@@ -37,5 +37,6 @@ WORKDIR /app
 COPY ./common/root/ /
 
 RUN rm /usr/local/etc/php/conf.d/xdebug.ini \
-  && rm /entrypoint.sh \
-  && rm /run_nginx.sh
+    && rm /entrypoint.sh \
+    && rm /run_nginx.sh \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer

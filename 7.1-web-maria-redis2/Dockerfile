@@ -74,7 +74,8 @@ WORKDIR /app
 
 COPY ./common/root/ /
 
-RUN chmod 755 /entrypoint.sh
+RUN chmod 755 /entrypoint.sh \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer
 
 EXPOSE 443 80
 
