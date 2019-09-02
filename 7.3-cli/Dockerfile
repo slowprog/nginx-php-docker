@@ -1,4 +1,4 @@
-FROM php:7.2-cli-alpine
+FROM php:7.3-cli-alpine
 
 ENV PHP_REDIS_VERSION=3.1.6
 ENV PHP_APCU_VERSION=5.1.8
@@ -6,6 +6,7 @@ ENV PHP_APCU_VERSION=5.1.8
 RUN apk add --no-cache --virtual .persistent-deps \
     git \
     icu-libs \
+    libzip-dev \
     postgresql-dev
 
 RUN set -xe \
@@ -13,6 +14,8 @@ RUN set -xe \
         $PHPIZE_DEPS \
         icu-dev \
         zlib-dev \
+        zip \
+    && docker-php-ext-configure zip --with-libzip \
     && docker-php-ext-install \
         intl \
         mbstring \
