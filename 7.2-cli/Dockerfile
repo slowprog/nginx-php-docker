@@ -1,5 +1,7 @@
 FROM php:7.2-cli-alpine
 
+# Адрес файла с переменными окружения от корня проекта.
+ENV ENV_PATH=.env
 ENV PHP_REDIS_VERSION=3.1.6
 ENV PHP_APCU_VERSION=5.1.8
 
