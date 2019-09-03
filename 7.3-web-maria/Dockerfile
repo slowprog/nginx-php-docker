@@ -64,6 +64,7 @@ RUN set -xe \
         pcntl \
         zip \
         mysqli \
+        pdo_mysql \
     && yes | pecl install \
         igbinary \
         redis-$PHP_REDIS_VERSION \
