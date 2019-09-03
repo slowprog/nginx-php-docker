@@ -6,6 +6,7 @@ This is a Dockerfile/image to build a container for PHP projects (nginx, php-fpm
 
 | Docker Tag | Nginx Version | PHP Version | Redis (ext) | PostgreSQL (ext) | MariaDB (ext) | MongoDB (ext) |
 |-----|-------|--------|--------|--------|--------|--------|
+| 7.3-web-maria | 1.16.0 | 7.3 | 3.1.6 | – | + | – |
 | 7.3-web | 1.16.0 | 7.3 | 3.1.6 | + | – | – |
 | 7.2-web | 1.16.0 | 7.2 | 3.1.6 | + | – | – |
 | 7.2-cli | – | 7.2 | 3.1.6 | + | – | – |
