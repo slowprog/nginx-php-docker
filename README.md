@@ -4,14 +4,15 @@ This is a Dockerfile/image to build a container for PHP projects (nginx, php-fpm
 
 ### Versioning
 
-| Docker Tag | Nginx Version | PHP Version | Redis (ext) | PostgreSQL (ext) | MariaDB (ext) | MongoDB (ext) |
+| Docker Tag | Nginx | PHP Version | Redis (ext) | PostgreSQL (ext) | MariaDB (ext) | MongoDB (ext) |
 |-----|-------|--------|--------|--------|--------|--------|
-| 7.3-web-maria | 1.16.0 | 7.3 | 3.1.6 | – | + | – |
-| 7.3-web | 1.16.0 | 7.3 | 3.1.6 | + | – | – |
-| 7.2-web | 1.16.0 | 7.2 | 3.1.6 | + | – | – |
+| 7.3-web-maria | + | 7.3 | 3.1.6 | – | + | – |
+| 7.3-web | + | 7.3 | 3.1.6 | + | – | – |
+| 7.2-web | + | 7.2 | 3.1.6 | + | – | – |
 | 7.2-cli | – | 7.2 | 3.1.6 | + | – | – |
-| 7.1-web-maria-redis2 | 1.16.0 | 7.1 | 2.2.8 | – | + | – |
-| 5.6-web-maria-redis2 | 1.16.0 | 5.6 | 2.2.8 | – | + | + |
+| 7.1-web-maria-redis2 | + | 7.1 | 2.2.8 | – | + | – |
+| 5.6-web-maria-redis2 | + | 5.6 | 2.2.8 | – | + | + |
+| symfony4 | + | 7.3 | 2.2.8 | – | - | - |
 
 ### Quick Start
 

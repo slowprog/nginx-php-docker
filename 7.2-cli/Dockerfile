@@ -36,6 +36,7 @@ RUN set -xe \
 WORKDIR /app
 
 COPY ./common/root/ /
+COPY ./env/root/ /
 
 RUN rm /usr/local/etc/php/conf.d/xdebug.ini \
     && rm /entrypoint.sh \
