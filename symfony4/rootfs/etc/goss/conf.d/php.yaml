@@ -1,0 +1,3 @@
+command:
+    php --version:
+        exit-status: 0
