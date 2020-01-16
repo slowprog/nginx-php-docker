@@ -43,7 +43,10 @@ RUN apk update \
 
 RUN apk add --no-cache --virtual .persistent-deps \
     git \
-    icu-libs
+    icu-libs \
+    libpng \
+    freetype \
+    libjpeg-turbo
 
 RUN set -xe \
     && apk add --no-cache --virtual .build-deps \
@@ -51,6 +54,9 @@ RUN set -xe \
         icu-dev \
         zlib-dev \
         libsasl \
+        libjpeg-turbo-dev \
+        freetype-dev \
+        libpng-dev \
     && docker-php-ext-install \
         intl \
         mbstring \
@@ -66,6 +72,12 @@ RUN set -xe \
     && docker-php-ext-enable \
         igbinary \
         redis \
+    && docker-php-ext-configure gd \
+        --with-gd \
+        --with-freetype-dir=/usr/include/ \
+        --with-png-dir=/usr/include/ \
+        --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install gd \
     && apk del .build-deps
 
 WORKDIR /app
