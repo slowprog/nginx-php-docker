@@ -12,6 +12,7 @@ This is a Dockerfile/image to build a container for PHP projects (nginx, php-fpm
 | 7.2-cli | – | 7.2 | 3.1.6 | + | – | – |
 | 7.3-web-maria | + | 7.3| 3.1.6 | – | + | – |
 | 7.1-web-maria | + | 7.1 | 3.1.6 | – | + | – |
+| 7.0-web-maria | + | 7.0 | 3.1.6 | – | + | – |
 | 5.6-web-maria | + | 5.6 | 3.1.6 | – | + | + |
 | symfony4 | + | 7.3 | 3.1.6 | – | - | - |
 
