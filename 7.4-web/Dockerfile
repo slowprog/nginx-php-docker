@@ -55,10 +55,9 @@ RUN set -xe \
         icu-dev \
         zlib-dev \
         zip \
-    && docker-php-ext-configure zip --with-libzip \
+    && docker-php-ext-configure zip \
     && docker-php-ext-install \
         intl \
-        mbstring \
         bcmath \
         pcntl \
         zip \
