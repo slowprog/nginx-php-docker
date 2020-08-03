@@ -76,6 +76,7 @@ WORKDIR /app
 
 COPY ./common/root/ /
 COPY ./env/root/ /
+COPY ./7.4-web/rootfs /
 
 RUN chmod 755 /entrypoint.sh \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer

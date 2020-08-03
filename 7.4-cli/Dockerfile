@@ -37,6 +37,7 @@ WORKDIR /app
 
 COPY ./common/root/ /
 COPY ./env/root/ /
+COPY ./7.4-cli/rootfs /
 
 RUN rm /usr/local/etc/php/conf.d/xdebug.ini \
     && rm /entrypoint.sh \
