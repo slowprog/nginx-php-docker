@@ -16,13 +16,14 @@ RUN set -xe \
         icu-dev \
         zlib-dev \
         zip \
-    && docker-php-ext-configure zip \
+    && docker-php-ext-configure zip opcache --enable-opcache \
     && docker-php-ext-install \
         intl \
         bcmath \
         pcntl \
         zip \
         pdo_pgsql \
+        opcache \
     && yes | pecl install \
         igbinary \
         redis-$PHP_REDIS_VERSION \
@@ -32,6 +33,17 @@ RUN set -xe \
         redis \
     && apk del .build-deps
 
+RUN sed -E -i -e 's/display_errors = On/display_errors = Off/' /usr/local/etc/php/php.ini \
+    && sed -E -i -e 's/display_startup_errors = On/display_startup_errors = Off/' /usr/local/etc/php/php.ini \
+    && sed -E -i -e 's/;opcache.preload=/opcache.preload=\/app\/var\/cache\/prod\/srcApp_KernelProdContainer.preload.php/' /usr/local/etc/php/php.ini \
+    && sed -E -i -e 's/;opcache.preload_user=/opcache.preload_user=nginx/' /usr/local/etc/php/php.ini \
+    && sed -E -i -e 's/;opcache.memory_consumption=128/opcache.memory_consumption=256/' /usr/local/etc/php/php.ini \
+    && sed -E -i -e 's/;opcache.max_accelerated_files=10000/opcache.max_accelerated_files=20000/' /usr/local/etc/php/php.ini \
+    && sed -E -i -e 's/;opcache.validate_timestamps=1/opcache.validate_timestamps=0/' /usr/local/etc/php/php.ini \
+    && sed -E -i -e 's/;opcache.max_wasted_percentage=5/opcache.max_wasted_percentage=10/' /usr/local/etc/php/php.ini \
+    && sed -E -i -e 's/;realpath_cache_size = 4096k/realpath_cache_size=4096k/' /usr/local/etc/php/php.ini \
+    && sed -E -i -e 's/;realpath_cache_ttl = 120/realpath_cache_ttl=600/' /usr/local/etc/php/php.ini
+    
 WORKDIR /app
 
 COPY ./common/root/ /
