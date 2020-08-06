@@ -16,8 +16,6 @@ RUN set -xe \
         icu-dev \
         zlib-dev \
         zip \
-    && docker-php-ext-configure zip \
-    && docker-php-ext-configure opcache --enable-opcache \
     && docker-php-ext-install \
         intl \
         bcmath \
@@ -25,6 +23,8 @@ RUN set -xe \
         zip \
         pdo_pgsql \
         opcache \
+    && docker-php-ext-configure zip \
+    && docker-php-ext-configure opcache --enable-opcache \
     && yes | pecl install \
         igbinary \
         redis-$PHP_REDIS_VERSION \
