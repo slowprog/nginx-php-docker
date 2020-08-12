@@ -80,6 +80,7 @@ COPY ./7.4-web/rootfs /
 
 RUN sed -E -i -e 's/display_errors = On/display_errors = Off/' /usr/local/etc/php/php.ini \
     && sed -E -i -e 's/display_startup_errors = On/display_startup_errors = Off/' /usr/local/etc/php/php.ini \
+    && sed -E -i -e 's/;opcache.enable=1/opcache.enable=0/' /usr/local/etc/php/php.ini \
     && sed -E -i -e 's/;opcache.preload=/opcache.preload=\/app\/var\/cache\/prod\/srcApp_KernelProdContainer.preload.php/' /usr/local/etc/php/php.ini \
     && sed -E -i -e 's/;opcache.preload_user=/opcache.preload_user=nginx/' /usr/local/etc/php/php.ini \
     && sed -E -i -e 's/;opcache.memory_consumption=128/opcache.memory_consumption=256/' /usr/local/etc/php/php.ini \
